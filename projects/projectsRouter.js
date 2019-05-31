@@ -69,7 +69,7 @@ router.post('/', ValidateProject, (req,res) => {
     Projects.insert(req.body)
         .then(project => {
             console.log(project);
-            res.status(200).json({project});
+            res.status(200).json(project);
         })
         .catch(error => {
             console.log('Inside post catch.')
