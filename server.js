@@ -1,7 +1,7 @@
 const express = require('express');
 const helmet = require('helmet');
-// const postRouter = require('./posts/postRouter');
-// const userRouter = require('./users/userRouter');
+const actionsRouter = require('./actions/actionsRouter');
+const projectsRouter = require('./projects/projectsRouter');
 
 const server = express();
 
@@ -15,9 +15,8 @@ server.get('/', (req, res) => {
   res.send(`<h2>Sprint Challenge: Web API</h2>`)
 });
 
-// server.use('/api/posts', postRouter);
-// server.use('/api/users', userRouter);
-
+server.use('/api/projects', projectsRouter);
+server.use('/api/actions', actionsRouter);
 
 //custom middleware
 
