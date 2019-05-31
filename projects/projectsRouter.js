@@ -81,8 +81,22 @@ router.post('/', ValidateProject, (req,res) => {
         })
 })
 
-//delete project
+//delete project == Working
 
+router.delete('/:id', ValidateProjectId, (req, res) => {
+    Projects.remove(req.params.id)
+        .then(project => {
+            console.log(project);
+            res.status(200).json({
+                message: `${project} Project successfully removed.`
+            });
+        })
+        .catch(error => {
+            res.status(500).json({
+                message: 'Project was unable to be removed.'
+            })
+        })
+})
 
 //update project
 
