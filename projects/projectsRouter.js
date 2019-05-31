@@ -41,7 +41,7 @@ function ValidateProject(req, res, next) {
     }
 }
 
-//CRUD operations
+//CRUD requests\\
 
 //get all projects == Working
 
@@ -66,7 +66,6 @@ router.get('/:id', ValidateProjectId, (req, res) => {
 //add project == Working
 
 router.post('/', ValidateProject, (req,res) => {
-    let temp = req.body;
     Projects.insert(req.body)
         .then(project => {
             console.log(project);
@@ -98,7 +97,21 @@ router.delete('/:id', ValidateProjectId, (req, res) => {
         })
 })
 
-//update project
+//update project == Working
+
+router.put('/:id', ValidateProjectId, ValidateProject, (req, res) => {
+    Projects.update(req.params.id, req.body)
+        .then(project => {
+            console.log(project);
+            res.status(200).json({project});
+        })
+        .catch(error => {
+            console.log(error);
+            res.status(500).json({
+                message: 'Project was unable to be updated.'
+            })
+        })
+})
 
 
 module.exports = router;
