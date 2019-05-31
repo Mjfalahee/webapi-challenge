@@ -87,7 +87,7 @@ router.delete('/:id', ValidateProjectId, (req, res) => {
         .then(project => {
             console.log(project);
             res.status(200).json({
-                message: `${project} Project successfully removed.`
+                message: `${project} Project was successfully removed.`
             });
         })
         .catch(error => {

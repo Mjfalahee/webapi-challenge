@@ -111,7 +111,22 @@ router.post('/', ValidateProjectId, ValidateAction, (req, res) => {
         })
 })
 
-//delete action
+//delete action == working
+
+router.delete('/:id', ValidateActionId, (req, res) => {
+    Actions.remove(req.params.id)
+        .then(action => {
+            console.log(action);
+            res.status(200).json({
+                message: `${action} Action was successfully removed.`
+            });
+        })
+        .catch(error => {
+            res.status(500).json({
+                message: 'Action was unable to be removed.'
+            })
+        })
+})
 
 //update action
 
