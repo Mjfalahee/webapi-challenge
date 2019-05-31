@@ -4,7 +4,10 @@ const Projects = require('../data/helpers/projectModel');
 const router = express.Router();
 
 //Middleware
-
+router.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    next();
+  });
 
 function ValidateActionId(req, res, next) {
     if (req.params.id) {
