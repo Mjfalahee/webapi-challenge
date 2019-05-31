@@ -113,5 +113,21 @@ router.put('/:id', ValidateProjectId, ValidateProject, (req, res) => {
         })
 })
 
+//get the actions for a specific project == Working
+
+router.get('/:id/actions', ValidateProjectId, (req, res) => {
+    Projects.getProjectActions(req.params.id)
+        .then(actions => {
+                console.log(actions);
+                res.status(200).json(actions);
+        })
+        .catch(error => {
+            console.log(error);
+            res.status(500).json({
+                message: `Error retrieving the actions associated with project ${req.params.id}`
+            });
+        })
+})
+
 
 module.exports = router;
