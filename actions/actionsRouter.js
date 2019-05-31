@@ -130,4 +130,18 @@ router.delete('/:id', ValidateActionId, (req, res) => {
 
 //update action
 
+router.put('/:id', ValidateActionId, ValidateAction, (req, res) => {
+    Actions.update(req.params.id, req.body)
+        .then(action => {
+            console.log(action);
+            res.status(200).json(action);
+        })
+        .catch(error => {
+            console.log(error);
+            res.status(500).json({
+                message: 'Action was unable to be updated.'
+            })
+        })
+})
+
 module.exports = router;

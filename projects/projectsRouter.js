@@ -103,7 +103,7 @@ router.put('/:id', ValidateProjectId, ValidateProject, (req, res) => {
     Projects.update(req.params.id, req.body)
         .then(project => {
             console.log(project);
-            res.status(200).json({project});
+            res.status(200).json(project);
         })
         .catch(error => {
             console.log(error);
