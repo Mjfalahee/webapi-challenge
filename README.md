@@ -24,15 +24,26 @@ In this challenge, create a web API around the following resources: `Projects` a
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] Mention two parts of Express that you learned about this week.
+- [x] Mention two parts of Express that you learned about this week.
 
-- [ ] Describe Middleware?
+ 1. We learned about Express routing and the way we can change a server by splitting it up, similarly to how React works with components and routing as well. It's simple, and easy to set up, and offers a lot of flexibility for accessing your data. 
+ 2. We also glanced at Express Middleware this week, which if I compare them to React they are sort of like component methods. They are functions that can act globally on the entire server, or locally on a specific part of it. They can simplify your requests by adding information, or checking authentication, or anything else you can think of really.
 
-- [ ] Describe a Resource?
+- [x] Describe Middleware?
 
-- [ ] What can the API return to help clients know if a request was successful?
+Uh. See above? But honestly, I think they are a great tool when it comes to cutting down the length and complexity of your code because they are reusable functions that can span across different request types and even across different routers.
 
-- [ ] How can we partition our application into sub-applications?
+- [x] Describe a Resource?
+
+Most, if not all things are resources when it comes to designing an API. It's entirely up to you to decide what you do and don't use when you design your requests, and what they grab from the server but there are a million different things that you could access as a 'resource.' I think the bare principles of a resource are that they are uniquely identifiable by a URL, but also they are capable of appearing in multiple representations. 
+
+- [x] What can the API return to help clients know if a request was successful?
+
+A status code of 200 generally means everything went OK. You could also send a message within your json response stating everything is peachy. Or you could even throw a boolean property in that object that changes to true on success. There are loads of options!
+
+- [x] How can we partition our application into sub-applications?
+
+By using Express Routers. It's similar to React components where it breaks the app into manageable parts that are easier to digest and discern their purpose as an outside observer.
 
 ## Project Setup
 
