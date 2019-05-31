@@ -7,6 +7,14 @@ const router = express.Router();
 
 //CRUD operations
 
+//get all actions
 
+//get specific action
+
+//add action
+
+//delete action
+
+//update action
 
 module.exports = router;
